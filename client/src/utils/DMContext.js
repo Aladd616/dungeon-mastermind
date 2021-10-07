@@ -6,7 +6,7 @@ export const useDMContext = () => useContext(DMContext);
 
 export const DMProvider = ({children}) => {
     const initialState = {
-        message: "Hola!",
+        testmessage: "This is a test!",
     };
 
     return (

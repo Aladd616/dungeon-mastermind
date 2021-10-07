@@ -2,9 +2,9 @@ import React from "react";
 import {useDMContext} from "../utils/DMContext";
 
 export default function TestComponent() {
-    const {message} = useDMContext();
+    const { testmessage } = useDMContext();
 
     return (
-        <p>{message}</p>
+        <p>{testmessage}</p>
     )
 }

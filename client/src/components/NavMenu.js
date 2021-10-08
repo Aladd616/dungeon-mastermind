@@ -4,6 +4,7 @@
 import React from 'react';
 import { Box, Stack } from '@chakra-ui/layout';
 import { NavItem } from './NavItem';
+import { Link as RouteLink } from 'react-router-dom';
 
 export const NavMenu = ({ isOpen }) => {
   return (
@@ -14,10 +15,18 @@ export const NavMenu = ({ isOpen }) => {
         justify={['center', 'space-between', 'flex-start', 'flex-start']}
         direction={['column', 'row', 'row', 'row']}
       >
-        <NavItem to="/">Combat Tracker</NavItem>
-        <NavItem to="/dice">Dice Roller</NavItem>
-        <NavItem to="/characters">Characters</NavItem>
-        <NavItem to="/abilities">Abilities</NavItem>
+        <RouteLink to="/">
+          <NavItem>Combat Tracker</NavItem>
+        </RouteLink>
+        <RouteLink to="/dice">
+          <NavItem>Dice Roller</NavItem>
+        </RouteLink>
+        <RouteLink to="/characters">
+          <NavItem>Characters</NavItem>
+        </RouteLink>
+        <RouteLink to="/abilities">
+          <NavItem>Abilities</NavItem>
+        </RouteLink>
       </Stack>
     </Box>
   );

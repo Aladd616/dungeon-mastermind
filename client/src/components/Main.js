@@ -4,12 +4,12 @@
 // ================================================
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import Navigation from './NavigationWrapper';
+import Navigation from './Navigation';
 
-export default function Main() {
+export default function Main(props) {
   return (
     <Router>
-      <Navigation />
+      <Navigation {...props} />
       <Switch>
         <Route path="/">
           <p>Combat Tracker goes here</p>

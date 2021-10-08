@@ -4,7 +4,6 @@
 // ================================================
 import { Flex } from '@chakra-ui/layout';
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 export default function NavigationWrapper({ children, ...props }) {
   return (
@@ -16,8 +15,8 @@ export default function NavigationWrapper({ children, ...props }) {
       w="100%"
       mb={8}
       p={8}
-      bg={['black']}
-      color="white"
+      color="black"
+      {...props}
     >
       {children}
     </Flex>

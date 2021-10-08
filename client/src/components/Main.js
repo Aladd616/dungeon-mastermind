@@ -4,11 +4,12 @@
 // ================================================
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navigation from './NavigationWrapper';
 
 export default function Main() {
   return (
     <Router>
-      {/* Navigation goes here */}
+      <Navigation />
       <Switch>
         <Route path="/">
           <p>Combat Tracker goes here</p>

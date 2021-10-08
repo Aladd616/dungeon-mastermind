@@ -9,7 +9,7 @@ import { MdMenu } from 'react-icons/md';
 
 export const MenuToggle = ({ toggle, isOpen }) => {
   return (
-    <Box display={{ base: 'block', md: 'block' }} onClick={toggle}>
+    <Box display={{ base: 'block', md: 'none' }} onClick={toggle}>
       {isOpen ? <AiFillCloseSquare /> : <MdMenu />}
     </Box>
   );

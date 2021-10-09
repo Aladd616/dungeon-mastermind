@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 import QuickDiceWrapper from './QuickDiceWrapper';
+import AdvancedDiceWrapper from './AdvancedDiceWrapper';
 
 export const DiceWrapper = () => {
   // Dice logic needs to go here
@@ -24,6 +25,7 @@ export const DiceWrapper = () => {
   return (
     <Box>
       <QuickDiceWrapper roller={rollQuickDice} />
+      <AdvancedDiceWrapper roller={rollAdvancedDice} />
     </Box>
   );
 };

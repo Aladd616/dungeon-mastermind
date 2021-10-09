@@ -6,10 +6,12 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DiceWrapper from './DiceWrapper';
 import Navigation from './Navigation';
+import Header from './Header';
 
 export default function Main(props) {
   return (
     <Router>
+      <Header />
       <Navigation {...props} />
       <Switch>
         <Route exact path="/">

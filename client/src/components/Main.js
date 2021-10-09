@@ -4,6 +4,7 @@
 // ================================================
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import DiceWrapper from './DiceWrapper';
 import Navigation from './Navigation';
 import Header from './Header';
 
@@ -17,7 +18,7 @@ export default function Main(props) {
           <p>Combat Tracker goes here</p>
         </Route>
         <Route path="/dice">
-          <p>Dice goes here</p>
+          <DiceWrapper />
         </Route>
         <Route path="/characters">
           <p>Characters Goes here</p>

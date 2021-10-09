@@ -49,4 +49,3 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`Server initialization complete. Server listening on ${PORT}`);
   });
 });
-

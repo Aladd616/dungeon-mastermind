@@ -1,17 +1,19 @@
-import { DMProvider} from "./utils/DMContext";
-import logo from './logo.svg';
+// ================================================
+//  App wrapper, initializes providers
+// ================================================
+import { DMProvider } from './utils/DMContext';
+import React from 'react';
 import './App.css';
-import Header from "./components/Header";
-import TestComponent from "./components/TestComponent";
+import { ChakraProvider, theme } from '@chakra-ui/react';
+import Main from './components/Main';
 
 function App() {
   return (
-    <div className="App">
+    <ChakraProvider theme={theme}>
       <DMProvider>
-        <Header />
-        <TestComponent />
+        <Main />
       </DMProvider>
-    </div>
+    </ChakraProvider>
   );
 }
 

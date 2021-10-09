@@ -6,7 +6,7 @@ const express = require('express');
 // const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Initialize secondary utilities
-// const routes = require('./controllers');
+const routes = require('./routes');
 // const cookieParser = require('cookie-parser');
 
 const sequelize = require('./config/connection');
@@ -41,7 +41,7 @@ const PORT = process.env.PORT || 3001;
 // require('./boot/auth');
 
 // Initialize routes
-// app.use(routes);
+app.use(routes);
 
 // Initiate the sequelize server
 sequelize.sync({ force: false }).then(() => {

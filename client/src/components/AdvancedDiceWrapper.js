@@ -1,5 +1,5 @@
 import React from 'react';
-import { Box, Text, Heading } from '@chakra-ui/react';
+import { Box, Heading } from '@chakra-ui/react';
 import AdvancedDiceInput from './AdvancedDiceInput';
 
 export const AdvancedDiceWrapper = ({ roller }) => {

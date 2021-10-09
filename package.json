@@ -15,5 +15,11 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+<<<<<<< Updated upstream
+=======
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.5"
+>>>>>>> Stashed changes
   }
 }

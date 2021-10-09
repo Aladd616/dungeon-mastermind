@@ -6,7 +6,7 @@ const session = require('express-session');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
 // Initialize secondary utilities
-const routes = require('./routes');
+const routes = require('./controllers');
 const cookieParser = require('cookie-parser');
 
 const sequelize = require('./config/connection');
@@ -49,4 +49,3 @@ sequelize.sync({ force: false }).then(() => {
     console.log(`Server initialization complete. Server listening on ${PORT}`);
   });
 });
-

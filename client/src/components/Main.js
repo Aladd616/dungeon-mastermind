@@ -5,13 +5,15 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navigation from './Navigation';
+import Header from './Header';
 
 export default function Main(props) {
   return (
     <Router>
+      <Header />
       <Navigation {...props} />
       <Switch>
-        <Route path="/">
+        <Route exact path="/">
           <p>Combat Tracker goes here</p>
         </Route>
         <Route path="/dice">

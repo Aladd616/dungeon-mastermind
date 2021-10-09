@@ -1,10 +1,6 @@
-import React from "react";
+import React from 'react';
+import { Heading } from '@chakra-ui/react';
 
 export default function Header() {
-
-    return (
-        <header id="page-header" class="container text-center mt-2">
-            <h1 class="text-white">DM Helper</h1>
-        </header>
-    )
+  return <Heading size="lg">DM Helper</Heading>;
 }

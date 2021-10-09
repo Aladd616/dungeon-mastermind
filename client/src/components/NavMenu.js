@@ -15,7 +15,7 @@ export const NavMenu = ({ isOpen }) => {
         justify={['center', 'space-between', 'flex-start', 'flex-start']}
         direction={['column', 'row', 'row', 'row']}
       >
-        <RouteLink exact path to="/" activeClassName="active">
+        <RouteLink exact to="/" activeClassName="active">
           <NavItem>Combat Tracker</NavItem>
         </RouteLink>
         <RouteLink to="/dice" activeClassName="active">

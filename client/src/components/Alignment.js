@@ -6,9 +6,10 @@ import { Input } from "@chakra-ui/react";
 - Wanted to give the players the ability to choose whatever alignment they wish
 - Gives flexibility for the user
 */
+
 export const Alignment = () => {
     return (
-        <Input placeholder="Chaotic Evil" />
+    <Input placeholder="Chaotic Evil" />
     )
 }
 

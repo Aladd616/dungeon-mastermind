@@ -2,14 +2,14 @@
 //  The main dice tab, handles the dice logic and
 // dice roll display
 // ================================================
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Box } from '@chakra-ui/react';
 import QuickDiceWrapper from './QuickDiceWrapper';
 import AdvancedDiceWrapper from './AdvancedDiceWrapper';
-import DiceHistory from './DiceHistory';
 
 export const DiceWrapper = () => {
   const [history, setHistory] = useState([]);
+  useEffect(() => {}, history);
 
   // Handles quick dice logic
   // -----------------------------------------------------------------
@@ -63,7 +63,6 @@ export const DiceWrapper = () => {
     <Box>
       <QuickDiceWrapper roller={rollQuickDice} />
       <AdvancedDiceWrapper roller={rollAdvancedDice} />
-      <DiceHistory history={history} />
     </Box>
   );
 };

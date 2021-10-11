@@ -10,7 +10,7 @@ export const DiceHistory = ({ history }) => {
     <Box p={3}>
       <UnorderedList>
         {history.map((hist, i) => {
-          return <ListItem key={i}>{hist}</ListItem>;
+          return <ListItem>{hist}</ListItem>;
         })}
       </UnorderedList>
     </Box>

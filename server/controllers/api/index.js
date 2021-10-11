@@ -13,6 +13,7 @@ const abilityListRoutes = require('./abilityListRoutes');
 const combatTrackerRoutes = require('./CombatTrackerRoutes');
 const chatRoutes = require ('./chatRoutes');
 const memberRoutes = require('./membersRoutes');
+const messageRoutes = require('./messagesRoutes')
 
 
 router.use('/users/', userRoutes);
@@ -23,5 +24,6 @@ router.use('/abilitylist/', abilityListRoutes);
 router.use('/CombatTracker/', combatTrackerRoutes);
 router.use('/chat/',chatRoutes);
 router.use('/members/',memberRoutes);
+router.use('./messages/', messageRoutes);
 
 module.exports = router;

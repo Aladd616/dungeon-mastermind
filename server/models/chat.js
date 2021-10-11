@@ -14,6 +14,10 @@ chat.init(
 
     chat_id: {
       type: DataTypes.STRING,
+      // references: {
+      //   model: 'members',
+      //   key: 'chat_id',
+      // }
     },
   },
   {

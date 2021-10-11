@@ -5,7 +5,7 @@ const AbilityList = require('./AbilityList');
 const Chat = require ('./chat');
 const Messages = require ('./messages');
 const Members = require ('./chatMembers');
-const members = require('./chatMembers');
+
 
 Ability.belongsToMany(Character, {
   through: 'AbilityList',
@@ -25,20 +25,20 @@ User.hasMany(Character, {
   foreignKey: 'user_id',
 });
 
-Chat.hasMany(Members,{
-  foreignKey: "chat_id"
-});
-Members. belongsTo (Chat,{
-  foreignKey: "chat_id"
-});
+// Chat.hasMany(Members,{
+//   foreignKey: "chat_id"
+// });
+// Members.belongsTo (Chat,{
+//   foreignKey: "chat_id"
+// });
 
-User.hasMany(Members,{
-  foreignKey: 'userChatID'
-});
+// User.hasMany(Members,{
+//   foreignKey: 'user_id'
+// });
 
-Members.belongsTo(User,{
-  foreignKey: 'userChatID'
-});
+// Members.belongsTo(User,{
+//   foreignKey: 'user_id'
+// });
 
 
 module.exports = {
@@ -46,7 +46,7 @@ module.exports = {
   Character,
   Ability,
   AbilityList,
-  Messages,
   Chat,
   Members,
+  Messages
 };

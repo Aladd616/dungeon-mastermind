@@ -15,7 +15,7 @@ export const DiceWrapper = () => {
 
     let result = await response.json();
 
-    console.log(result);
+    return result;
   }
 
   function rollAdvancedDice() {

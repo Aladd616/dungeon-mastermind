@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Box, Image, Stack, Text } from '@chakra-ui/react';
 
 export const QuickDiceBox = ({ size, roller }) => {
+  const [roll, setRoll] = useState('-');
   const source = `./images/quickdice/d${size}.png`;
   const alttext = `d${size} Image`;
-  const roll = '-';
 
   return (
     <Box marginX={3}>
@@ -14,8 +14,9 @@ export const QuickDiceBox = ({ size, roller }) => {
           alt={alttext}
           maxWidth="100px"
           maxHeight="90px"
-          onClick={() => {
-            roller(size);
+          onClick={async () => {
+            let result = await roller(size);
+            setRoll(result);
           }}
         />
         <Text align="center" fontSize="4xl">

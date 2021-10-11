@@ -1,10 +1,14 @@
+// ================================================
+//  The main dice tab, handles the dice logic and
+// dice roll display
+// ================================================
 import React from 'react';
 import { Box } from '@chakra-ui/react';
 import QuickDiceWrapper from './QuickDiceWrapper';
 import AdvancedDiceWrapper from './AdvancedDiceWrapper';
 
 export const DiceWrapper = () => {
-  // Dice logic needs to go here
+  // Handles quick dice logic
   async function rollQuickDice(size) {
     let apiURL = `/api/dice/${size}`;
 
@@ -18,8 +22,22 @@ export const DiceWrapper = () => {
     return result;
   }
 
-  function rollAdvancedDice() {
-    // Quick dice rolling function
+  // Handles submission of advanced dice formula to the server
+  async function rollAdvancedDice(formula) {
+    if (!formula) {
+      return null;
+    }
+
+    const response = await fetch('/api/dice', {
+      method: 'POST',
+      body: JSON.stringify({
+        dice: formula,
+      }),
+      headers: { 'Content-Type': 'application/json' },
+    });
+
+    let result = await response.json();
+    console.log(result);
   }
 
   return (

@@ -1,3 +1,7 @@
+// ================================================
+//  Wrapper for the advanced dice roller section of
+// the dice tab
+// ================================================
 import React from 'react';
 import { Box, Heading } from '@chakra-ui/react';
 import AdvancedDiceInput from './AdvancedDiceInput';

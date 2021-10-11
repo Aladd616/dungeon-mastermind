@@ -1,3 +1,7 @@
+// ================================================
+//  Represents a single quick dice box, with the type
+// and image set by the size prop
+// ================================================
 import React, { useState } from 'react';
 import { Box, Image, Stack, Text } from '@chakra-ui/react';
 

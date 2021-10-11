@@ -14,10 +14,10 @@ messages.init(
 
     chat_id: {
         type: DataTypes.STRING,
-        references: {
-          model: 'chat',
-          key: 'chat_id'
-        }
+        // references: {
+        //   model: 'chat',
+        //   key: 'chat_id'
+        // }
     },
 
     sender: {

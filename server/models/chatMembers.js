@@ -11,21 +11,23 @@ members.init(
       autoIncrement: true,
     },
 
-    userChatID: {
+    user_id: {
       type: DataTypes.STRING,
-      references: {
-        model: 'user',
-        key: 'userChatID',
+      // references: {
+      //   model: 'User',
+      //   key: 'user_id',
+      // },
+  
       },
-    },
+    
 
     chat_id: {
         type: DataTypes.STRING,
-        references: {
-            model: 'chat',
-            key: 'chat_id',
-          },
-    }
+        // references: {
+        //     model: 'chat',
+        //     key: 'chat_id',
+        //   },
+    },
   },
   {
     sequelize,

@@ -38,14 +38,14 @@ User.init(
         isEmail: true,
       },
     },
-    userChatID : {
+    
+    user_id : {
       type: DataTypes.STRING,
       unique: true,
-      references:{
-        model: 'members',
-        key: 'userChatID',
-        
-      }
+      // references:{
+      //   model: 'members',
+      //   key: 'user_id', 
+      // }
     },
 
     character_id: {
@@ -60,7 +60,7 @@ User.init(
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
-        newUserData.uniqueId = await uuidv4()
+        newUserData.user_id = await uuidv4()
         return newUserData;
       },
       beforeUpdate: async (updatedUserData) => {

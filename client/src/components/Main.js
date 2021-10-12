@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DiceWrapper from './DiceWrapper';
 import Navigation from './Navigation';
 import Header from './Header';
+import CharacterWrapper from './CharacterWrapper';
 
 export default function Main(props) {
   return (
@@ -21,7 +22,7 @@ export default function Main(props) {
           <DiceWrapper />
         </Route>
         <Route path="/characters">
-          <p>Characters Goes here</p>
+          <CharacterWrapper />
         </Route>
         <Route path="/abilities">
           <p>abilities goes here</p>

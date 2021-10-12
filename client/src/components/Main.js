@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DiceWrapper from './DiceWrapper';
 import Navigation from './Navigation';
 import Header from './Header';
+import Login from './Login';
 
 export default function Main(props) {
   return (
@@ -30,6 +31,7 @@ export default function Main(props) {
           <p>settings goes here</p>
         </Route>
       </Switch>
+      <Login/>
     </Router>
   );
 }

@@ -17,6 +17,7 @@ import {
   } from "@chakra-ui/react"
   import ContactList from './ContactList'
 import GroupList from './GroupList'
+import Messages from './messages'
 
 function Chat() {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -27,6 +28,7 @@ function Chat() {
         <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
           Chat
         </Button>
+        
         <Drawer
           isOpen={isOpen}
           placement="right"
@@ -38,16 +40,21 @@ function Chat() {
             <DrawerCloseButton />
             <Tabs>
   <TabList>
-    <Tab>Group Chats</Tab>
+    <Tab>Chat</Tab>
     <Tab>Contacts</Tab>
   </TabList>
+  
 
   <TabPanels>
     <TabPanel>
-      <GroupList/>
+      <ContactList/>
     </TabPanel>
     <TabPanel>
-        <ContactList/>
+        <Messages/>
+        <Messages/>
+        <Messages/>
+        <Messages/>
+        <Messages/>
     </TabPanel>
   </TabPanels>
 </Tabs>

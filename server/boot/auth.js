@@ -71,12 +71,12 @@ passport.serializeUser(function (user, done) {
 });
 
 // Retrieves authentication by id
-passport.deserializeUser(async function (id, done) {
+passport.deserializeUser(async (id, done)=> {
   try {
     let user = User.findByPk(id);
     done(null, user);
   } catch (err) {
-    done(err);
+    throw(err);
   }
 });
 

@@ -8,6 +8,7 @@ import DiceWrapper from './DiceWrapper';
 import Navigation from './Navigation';
 import Header from './Header';
 import Login from './Login';
+import SignUp from './SignUp';
 
 export default function Main(props) {
   return (
@@ -32,6 +33,7 @@ export default function Main(props) {
         </Route>
       </Switch>
       <Login/>
+      <SignUp/>
     </Router>
   );
 }

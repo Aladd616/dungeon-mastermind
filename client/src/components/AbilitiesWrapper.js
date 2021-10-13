@@ -1,21 +1,22 @@
 // ================================================
-//  Wraps the main character sheet page
+//  Wraps the main abilities page
 // ================================================
 import React, { useEffect, useState } from 'react';
 import { Box, Text, Grid, GridItem } from '@chakra-ui/react';
+import AbilitiesSheet from './AbilitiesSheet';
 import CharacterSheet from './CharacterSheet';
 
-export const CharacterWrapper = (props) => {
+export const AbilitiesWrapper = (props) => {
   const [state, setState] = useState({ data: [] });
 
   useEffect(() => {
-    fetch(`/api/characters/`)
+    fetch(`/api/abilities/`)
       .then((res) => res.json())
       .then((json) => setState({ data: json }));
   }, []);
 
-  const renderList = state.data.map((char, i) => {
-    return <Text key={i}>{char.character_name}</Text>;
+  const renderList = state.data.map((pwr, i) => {
+    return <Text key={i}>{pwr.title}</Text>;
   });
 
   return (
@@ -25,11 +26,11 @@ export const CharacterWrapper = (props) => {
       </GridItem>
       <GridItem colspan={4} colStart={2}>
         <Box>
-          <CharacterSheet {...props} />
+          <AbilitiesSheet {...props} />
         </Box>
       </GridItem>
     </Grid>
   );
 };
 
-export default CharacterWrapper;
+export default AbilitiesWrapper;

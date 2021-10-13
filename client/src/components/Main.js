@@ -10,6 +10,7 @@ import Header from './Header';
 import CharacterWrapper from './CharacterWrapper';
 import Login from './Login';
 import SignUp from './SignUp';
+import AbilitiesWrapper from './AbilitiesWrapper';
 
 export default function Main(props) {
   return (
@@ -27,14 +28,18 @@ export default function Main(props) {
           <CharacterWrapper />
         </Route>
         <Route path="/abilities">
-          <p>abilities goes here</p>
+          <AbilitiesWrapper />
         </Route>
         <Route path="/settings">
           <p>settings goes here</p>
         </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
+        </Route>
       </Switch>
-      <Login />
-      <SignUp />
     </Router>
   );
 }

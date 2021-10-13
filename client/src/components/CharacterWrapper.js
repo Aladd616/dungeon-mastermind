@@ -4,6 +4,7 @@
 import React, { useEffect, useState } from 'react';
 import { Box, Text, Grid, GridItem } from '@chakra-ui/react';
 import CharacterSheet from './CharacterSheet';
+import { NavLink } from 'react-router-dom';
 
 export const CharacterWrapper = (props) => {
   const [state, setState] = useState({ data: [] });
@@ -15,15 +16,20 @@ export const CharacterWrapper = (props) => {
   }, []);
 
   const renderList = state.data.map((char, i) => {
-    return <Text key={i}>{char.character_name}</Text>;
+    const url = '/characters/' + char.id;
+    return (
+      <NavLink key={i} to={url}>
+        <Text key={i}>{char.character_name}</Text>;
+      </NavLink>
+    );
   });
 
   return (
     <Grid templateRows="repeat(1, 1f)" templateColumns="repeat(5, 1f)">
-      <GridItem colspan={1}>
+      <GridItem colSpan={1}>
         <Box>{renderList}</Box>
       </GridItem>
-      <GridItem colspan={4} colStart={2}>
+      <GridItem colSpan={4} colStart={2}>
         <Box>
           <CharacterSheet {...props} />
         </Box>

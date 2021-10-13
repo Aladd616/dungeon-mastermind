@@ -27,6 +27,8 @@ export default function Main(props) {
         <Route path="/characters">
           <CharacterWrapper />
         </Route>
+        <Route path="/characters/:id" component={CharacterWrapper}></Route>
+        <Route path="/abilities/:id" component={AbilitiesWrapper}></Route>
         <Route path="/abilities">
           <AbilitiesWrapper />
         </Route>

@@ -35,15 +35,16 @@ router.get('/:id', async (req, res) => {
 // Creates a new user using /api/users/
 router.post( '/',  async (req, res, next) => {
     try { 
+      console.log(req.body)
       const userData = await User.create(req.body);
-      res.status(200).json(userData)
+     console.log("hello");
+    res.status(200).json(userData)
       passport.authenticate('local-signup', {
         successRedirect: '/',
-        failureRedirect: '/signup',
+        failureRedirect: '/',
       })
     } catch (err) {
-      res.status(400).json(err)
-      res.redirect("/signup")
+     return res.status(400).json(err)
     }
   }
 );
@@ -70,5 +71,9 @@ router.post('/logout', async (req, res, next) => {
   }
 });
 // ------------------------------------------------------------------------------------------------
+
+router.get("/user", (req, res) => {
+  res.send(req.user);
+});
 
 module.exports = router;

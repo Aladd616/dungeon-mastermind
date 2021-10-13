@@ -7,8 +7,13 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DiceWrapper from './DiceWrapper';
 import Navigation from './Navigation';
 import Header from './Header';
+
 import CombatTracker from './CombatTracker';
 import { useEffect, useState } from 'react';
+
+import Login from './Login';
+import SignUp from './SignUp';
+
 export default function Main(props) {
   return (
     <Router>
@@ -32,6 +37,8 @@ export default function Main(props) {
           <p>settings goes here</p>
         </Route>
       </Switch>
+      <Login/>
+      <SignUp/>
     </Router>
   );
 }

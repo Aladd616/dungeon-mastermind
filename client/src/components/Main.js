@@ -8,6 +8,8 @@ import DiceWrapper from './DiceWrapper';
 import Navigation from './Navigation';
 import Header from './Header';
 import CharacterWrapper from './CharacterWrapper';
+import CombatTracker from './CombatTracker';
+import { useEffect, useState } from 'react';
 import Login from './Login';
 import SignUp from './SignUp';
 import AbilitiesWrapper from './AbilitiesWrapper';
@@ -20,6 +22,7 @@ export default function Main(props) {
       <Switch>
         <Route exact path="/">
           <p>Combat Tracker goes here</p>
+          <CombatTracker/>
         </Route>
         <Route path="/dice">
           <DiceWrapper />

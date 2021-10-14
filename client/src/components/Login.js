@@ -15,6 +15,7 @@ function Login() {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [userInfo, setUserInfo] = useState('')
     const handleSubmit = async event => {
       event.preventDefault();
       try {
@@ -27,7 +28,7 @@ function Login() {
             headers: { 'Content-Type': 'application/json' },
             
         })   
-        console.log(response.json)
+        console.log(response.json())
         return(response.json)
       } catch (err) {
           console.log(err)

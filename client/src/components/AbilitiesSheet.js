@@ -28,7 +28,7 @@ export const AbilitiesSheet = (props) => {
   }
 
   function handleSave(evt) {
-    if (id == '') {
+    if (id === '') {
       createNewAbility();
     } else {
       updateAbility();
@@ -66,7 +66,7 @@ export const AbilitiesSheet = (props) => {
   }
 
   function handleDelete() {
-    if (id == 'create') {
+    if (id === 'create') {
       return;
     }
 
@@ -88,7 +88,8 @@ export const AbilitiesSheet = (props) => {
       <Input
         size="lg"
         id="title"
-        value={state.title || 'Ability Name'}
+        value={state.title}
+        defaultValue="Ability Name"
         onChange={handleChange}
       ></Input>
       <FormLabel>Summary:</FormLabel>

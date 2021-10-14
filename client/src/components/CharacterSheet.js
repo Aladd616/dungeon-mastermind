@@ -48,6 +48,7 @@ export const CharacterSheet = (props) => {
     cha: '',
     skills: '',
     feats: '',
+    spelllist: '',
     equipment: '',
     notes: '',
   });
@@ -67,112 +68,172 @@ export const CharacterSheet = (props) => {
     <Box>
       <Input
         size="lg"
-        value={state.character_name}
+        id="character_name"
+        value={state.character_name || 'Character Name'}
         onChange={handleChange}
       ></Input>
       <InputGroup size="sm">
         <Input
+          id="gender"
           placeholder="Gender"
           value={state.gender}
           onChange={handleChange}
         />
-        <Input placeholder="Race" value={state.race} onChange={handleChange} />
+        <Input
+          placeholder="Race"
+          id="race"
+          value={state.race}
+          onChange={handleChange}
+        />
         <FormLabel>/</FormLabel>
         <Input
           placeholder="Class"
+          id="class"
           value={state.class}
           onChange={handleChange}
         />
         <Input
           placeholder="Level"
+          id="level"
           value={state.level}
           onChange={handleChange}
         />
         <FormLabel>/</FormLabel>
         <Input
           placeholder="Alignment"
+          id="alignment"
           value={state.alignment}
           onChange={handleChange}
         />
-        <Input placeholder="Size" value={state.size} onChange={handleChange} />
-        <Input placeholder="Type" value={state.type} onChange={handleChange} />
+        <Input
+          placeholder="Size"
+          id="size"
+          value={state.size}
+          onChange={handleChange}
+        />
+        <Input
+          placeholder="Type"
+          id="type"
+          value={state.type}
+          onChange={handleChange}
+        />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Hit Die:</InputLeftAddon>
-        <Input value={state.hitDie} onChange={handleChange} />
+        <Input id="hitDie" value={state.hitDie} onChange={handleChange} />
         <InputLeftAddon>HP:</InputLeftAddon>
-        <Input value={state.hp} onChange={handleChange} />
+        <Input id="hp" value={state.hp} onChange={handleChange} />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Initiative:</InputLeftAddon>
-        <Input value={state.initiative} onChange={handleChange} />
+        <Input
+          id="initiative"
+          value={state.initiative}
+          onChange={handleChange}
+        />
         <InputLeftAddon>Speed:</InputLeftAddon>
-        <Input value={state.speed} onChange={handleChange} />
+        <Input id="speed" value={state.speed} onChange={handleChange} />
         <InputLeftAddon>Space:</InputLeftAddon>
-        <Input value={state.space} onChange={handleChange} />
+        <Input id="space" value={state.space} onChange={handleChange} />
         <InputLeftAddon>Reach:</InputLeftAddon>
-        <Input value={state.reach} onChange={handleChange} />
+        <Input id="reach" value={state.reach} onChange={handleChange} />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Armor Class:</InputLeftAddon>
-        <Input value={state.armorClass} onChange={handleChange} />
+        <Input
+          id="armorClass"
+          value={state.armorClass}
+          onChange={handleChange}
+        />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Attack:</InputLeftAddon>
-        <Input value={state.attacks} onChange={handleChange} />
+        <Input id="attacks" value={state.attacks} onChange={handleChange} />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Full Attack:</InputLeftAddon>
-        <Input value={state.fullattack} onChange={handleChange} />
+        <Input
+          id="fullattack"
+          value={state.fullattack}
+          onChange={handleChange}
+        />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Special Attacks:</InputLeftAddon>
-        <Input value={state.specialattack} onChange={handleChange} />
+        <Input
+          id="specialattack"
+          value={state.specialattack}
+          onChange={handleChange}
+        />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Special Qualities:</InputLeftAddon>
-        <Input value={state.specialqual} onChange={handleChange} />
+        <Input
+          id="specialqual"
+          value={state.specialqual}
+          onChange={handleChange}
+        />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Fortitude:</InputLeftAddon>
-        <Input value={state.fort} onChange={handleChange} />
+        <Input id="fort" value={state.fort} onChange={handleChange} />
         <InputLeftAddon>Reflex:</InputLeftAddon>
-        <Input value={state.ref} onChange={handleChange} />
+        <Input id="reflex" value={state.reflex} onChange={handleChange} />
         <InputLeftAddon>Will:</InputLeftAddon>
-        <Input value={state.will} onChange={handleChange} />
+        <Input id="will" value={state.will} onChange={handleChange} />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Str:</InputLeftAddon>
-        <Input value={state.str} onChange={handleChange} />
+        <Input id="str" value={state.str} onChange={handleChange} />
         <InputLeftAddon>Dex:</InputLeftAddon>
-        <Input value={state.dex} onChange={handleChange} />
+        <Input id="dex" value={state.dex} onChange={handleChange} />
         <InputLeftAddon>Con:</InputLeftAddon>
-        <Input value={state.con} onChange={handleChange} />
+        <Input id="con" value={state.con} onChange={handleChange} />
         <InputLeftAddon>Int:</InputLeftAddon>
-        <Input value={state.int} onChange={handleChange} />
+        <Input id="int" value={state.int} onChange={handleChange} />
         <InputLeftAddon>Wis:</InputLeftAddon>
-        <Input value={state.wis} onChange={handleChange} />
+        <Input id="wis" value={state.wis} onChange={handleChange} />
         <InputLeftAddon>Cha:</InputLeftAddon>
-        <Input value={state.cha} onChange={handleChange} />
+        <Input id="cha" value={state.cha} onChange={handleChange} />
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Skills:</InputLeftAddon>
-        <Textarea value={state.skills} onChange={handleChange}></Textarea>
+        <Textarea
+          id="skills"
+          value={state.skills}
+          onChange={handleChange}
+        ></Textarea>
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Feats:</InputLeftAddon>
-        <Textarea value={state.feats} onChange={handleChange}></Textarea>
+        <Textarea
+          id="feats"
+          value={state.feats}
+          onChange={handleChange}
+        ></Textarea>
       </InputGroup>
       <InputGroup>
         <InputLeftAddon>Equipment:</InputLeftAddon>
-        <Textarea value={state.equipment} onChange={handleChange}></Textarea>
+        <Textarea
+          id="equipment"
+          value={state.equipment}
+          onChange={handleChange}
+        ></Textarea>
       </InputGroup>
       <Heading>Notes</Heading>
       <InputGroup>
-        <Textarea value={state.notes} onChange={handleChange}></Textarea>
+        <Textarea
+          id="notes"
+          value={state.notes}
+          onChange={handleChange}
+        ></Textarea>
       </InputGroup>
     </Box>
   );
 };
+
+{
+  /*  */
+}
 
 export default CharacterSheet;

@@ -19,7 +19,7 @@ export const CharacterWrapper = (props) => {
     const url = '/characters/' + char.id;
     return (
       <NavLink key={i} to={url}>
-        <Text key={i}>{char.character_name}</Text>;
+        <Text>{char.character_name}</Text>;
       </NavLink>
     );
   });

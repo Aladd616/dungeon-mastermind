@@ -24,10 +24,10 @@ export default function Main(props) {
         <Route path="/dice">
           <DiceWrapper />
         </Route>
+        <Route path="/characters/:id" component={CharacterWrapper}></Route>
         <Route path="/characters">
           <CharacterWrapper />
         </Route>
-        <Route path="/characters/:id" component={CharacterWrapper}></Route>
         <Route path="/abilities/:id" component={AbilitiesWrapper}></Route>
         <Route path="/abilities">
           <AbilitiesWrapper />

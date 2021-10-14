@@ -30,19 +30,19 @@ export const AbilitiesSheet = (props) => {
     <Box>
       <Input
         size="lg"
-        name="title"
+        id="title"
         value={state.title || 'Ability Name'}
         onChange={handleChange}
       ></Input>
       <FormLabel>Summary:</FormLabel>
       <Textarea
-        name="details"
+        id="details"
         value={state.details}
         onChange={handleChange}
       ></Textarea>
       <FormLabel>Description:</FormLabel>
       <Textarea
-        name="description"
+        id="description"
         value={state.description}
         onChange={handleChange}
       ></Textarea>

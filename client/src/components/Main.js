@@ -9,19 +9,24 @@ import Navigation from './Navigation';
 import Header from './Header';
 import CharacterWrapper from './CharacterWrapper';
 import CombatTracker from './CombatTracker';
-import { useEffect, useState } from 'react';
 import Login from './Login';
 import SignUp from './SignUp';
 import AbilitiesWrapper from './AbilitiesWrapper';
+import { Box } from '@chakra-ui/layout';
 
 export default function Main(props) {
   return (
     <Router>
-      <Header />
-      <Navigation {...props} />
+      <Box
+        backgroundImage="/images/graph-paper-header.png"
+        backgroundPosition="bottom"
+        height="300px"
+      >
+        <Header />
+        <Navigation {...props} />
+      </Box>
       <Switch>
         <Route exact path="/">
-          <p>Combat Tracker goes here</p>
           <CombatTracker />
         </Route>
         <Route path="/dice">

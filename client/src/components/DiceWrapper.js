@@ -2,7 +2,7 @@
 //  The main dice tab, handles the dice logic and
 // dice roll display
 // ================================================
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { Box } from '@chakra-ui/react';
 import QuickDiceWrapper from './QuickDiceWrapper';
 import AdvancedDiceWrapper from './AdvancedDiceWrapper';

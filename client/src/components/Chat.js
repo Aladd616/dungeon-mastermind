@@ -9,10 +9,10 @@ import {
     DrawerCloseButton,
     useDisclosure,
     Button,
-    Tabs, 
-    TabList, 
-    TabPanels, 
-    Tab, 
+    Tabs,
+    TabList,
+    TabPanels,
+    Tab,
     TabPanel,
     Textarea,
     FormControl,
@@ -23,13 +23,13 @@ import Messages from './messages'
 
 function Chat() {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    
+
 
     const [user,setUser]=useState("")
     const [newMessage,setNewMessage] = useState("")
 
-  
-  
+
+
     const getUser = () => {
       Axios({
         method: "GET",
@@ -51,7 +51,7 @@ function Chat() {
     // socket.on("connect", () => {
     //   console.log(socket.id); // x8WIv7-mJelg7on_ALbx
     // });
-    
+
     // function receivedMessage(message) {
     //   setNewMessages(oldMsgs => [...oldMsgs, message]);
     // }
@@ -71,7 +71,7 @@ function Chat() {
         <Button  colorScheme="teal" onClick={runfunctions}>
           Chat
         </Button>
-        
+
         <Drawer
           isOpen={isOpen}
           placement="right"
@@ -86,7 +86,7 @@ function Chat() {
     <Tab>Chats</Tab>
     <Tab>Messages</Tab>
   </TabList>
-  
+
 
   <TabPanels>
     <TabPanel>

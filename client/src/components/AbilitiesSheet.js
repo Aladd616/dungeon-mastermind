@@ -4,7 +4,7 @@
 // ================================================
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router';
-import { Box, FormLabel, Textarea, Input } from '@chakra-ui/react';
+import { Box, FormLabel, Textarea, Input, Flex } from '@chakra-ui/react';
 import SaveDeleteButtons from './SaveDeleteButtons';
 
 export const AbilitiesSheet = (props) => {
@@ -92,12 +92,13 @@ export const AbilitiesSheet = (props) => {
   }
 
   return (
-    <Box m={2}
-     color='#300C04'>
-      <SaveDeleteButtons
-        saveFunction={handleSave}
-        deleteFunction={handleDelete}
-      />
+    <Box m={2} color="#300C04">
+      <Flex justifyContent="flex-end">
+        <SaveDeleteButtons
+          saveFunction={handleSave}
+          deleteFunction={handleDelete}
+        />
+      </Flex>
       <Input
         size="lg"
         name="title"
@@ -109,12 +110,14 @@ export const AbilitiesSheet = (props) => {
         name="details"
         value={state.details}
         onChange={handleChange}
+        height="20vh"
       ></Textarea>
       <FormLabel>Description:</FormLabel>
       <Textarea
         name="description"
         value={state.description}
         onChange={handleChange}
+        height="20vh"
       ></Textarea>
     </Box>
   );

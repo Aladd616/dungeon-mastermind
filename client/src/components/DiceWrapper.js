@@ -6,10 +6,10 @@ import React, { useEffect, useState } from 'react';
 import { Box } from '@chakra-ui/react';
 import QuickDiceWrapper from './QuickDiceWrapper';
 import AdvancedDiceWrapper from './AdvancedDiceWrapper';
+import DiceHistory from './DiceHistory';
 
 export const DiceWrapper = () => {
-  const [history, setHistory] = useState([]);
-  useEffect(() => {}, history);
+  const [state, setState] = useState({ history: [] });
 
   // Handles quick dice logic
   // -----------------------------------------------------------------
@@ -49,20 +49,21 @@ export const DiceWrapper = () => {
   // Adds a new element to the dice roll history
   // -----------------------------------------------------------------
   function addHistory(input) {
-    let newHistory = history;
+    let newHistory = state.history;
     newHistory.push(input);
 
     if (newHistory.length > 10) {
-      newHistory.pop();
+      newHistory.shift();
     }
-
-    setHistory(newHistory);
+    console.log(newHistory);
+    setState({ ...state, history: newHistory });
   }
 
   return (
     <Box>
       <QuickDiceWrapper roller={rollQuickDice} />
       <AdvancedDiceWrapper roller={rollAdvancedDice} />
+      <DiceHistory history={state.history}></DiceHistory>
     </Box>
   );
 };

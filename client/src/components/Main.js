@@ -22,7 +22,7 @@ export default function Main(props) {
       <Switch>
         <Route exact path="/">
           <p>Combat Tracker goes here</p>
-          <CombatTracker/>
+          <CombatTracker />
         </Route>
         <Route path="/dice">
           <DiceWrapper />
@@ -34,9 +34,6 @@ export default function Main(props) {
         <Route path="/abilities/:id" component={AbilitiesWrapper}></Route>
         <Route path="/abilities">
           <AbilitiesWrapper />
-        </Route>
-        <Route path="/settings">
-          <p>settings goes here</p>
         </Route>
         <Route path="/login">
           <Login />

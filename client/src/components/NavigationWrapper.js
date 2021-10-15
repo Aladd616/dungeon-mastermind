@@ -2,7 +2,7 @@
 //  NavigationWrapper is the actual navigation bar
 // enclosure that wraps the other individual components
 // ================================================
-import { Flex, Box } from '@chakra-ui/layout';
+import { Flex } from '@chakra-ui/layout';
 import React from 'react';
 
 export default function NavigationWrapper({ children, ...props }) {

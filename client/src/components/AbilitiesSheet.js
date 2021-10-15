@@ -18,6 +18,11 @@ export const AbilitiesSheet = (props) => {
 
   useEffect(() => {
     if (id === 'create') {
+      setState({
+        title: '',
+        details: '',
+        description: '',
+      });
       return;
     }
     fetch(`/api/abilities/${id}`)
@@ -31,8 +36,8 @@ export const AbilitiesSheet = (props) => {
   }
 
   function handleSave(evt) {
-    console.log(id);
     if (id === 'create') {
+      console.log('chosen create new ability');
       createNewAbility();
     } else {
       updateAbility();
@@ -48,12 +53,13 @@ export const AbilitiesSheet = (props) => {
       },
     }).then((response) => {
       if (response.ok) {
-        console.log('Updated');
+        window.location.reload(false);
       }
     });
   }
 
   function createNewAbility() {
+    console.log('triggered create new ability');
     if (state.title) {
       fetch(`/api/abilities/`, {
         method: 'POST',
@@ -63,22 +69,24 @@ export const AbilitiesSheet = (props) => {
         },
       }).then((response) => {
         if (response.ok) {
-          console.log('Successful Create');
+          window.location.reload(false);
         }
       });
+    } else {
+      console.log(state.title);
     }
   }
 
   function handleDelete() {
+    console.log(id);
     if (id === 'create') {
       return;
     }
-
     fetch(`/api/abilities/${id}`, {
       method: 'DELETE',
     }).then((response) => {
       if (response.ok) {
-        console.log('Successful Delete');
+        window.location.reload(false);
       }
     });
   }
@@ -91,20 +99,19 @@ export const AbilitiesSheet = (props) => {
       />
       <Input
         size="lg"
-        id="title"
+        name="title"
         value={state.title}
-        defaultValue="Ability Name"
         onChange={handleChange}
       ></Input>
       <FormLabel>Summary:</FormLabel>
       <Textarea
-        id="details"
+        name="details"
         value={state.details}
         onChange={handleChange}
       ></Textarea>
       <FormLabel>Description:</FormLabel>
       <Textarea
-        id="description"
+        name="description"
         value={state.description}
         onChange={handleChange}
       ></Textarea>

@@ -92,7 +92,8 @@ export const AbilitiesSheet = (props) => {
   }
 
   return (
-    <Box>
+    <Box m={2}
+     color='#300C04'>
       <SaveDeleteButtons
         saveFunction={handleSave}
         deleteFunction={handleDelete}

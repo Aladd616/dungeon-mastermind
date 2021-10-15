@@ -2,6 +2,10 @@
   text-align: center;
 }
 
+body {
+  background-image: url('/images/wood-board.jpg');
+}
+
 a.active p {
   color: red !important;
 }

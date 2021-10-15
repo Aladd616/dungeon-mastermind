@@ -17,7 +17,12 @@ import { Box } from '@chakra-ui/layout';
 export default function Main(props) {
   return (
     <Router>
-      <Box backgroundImage="/images/wood-board.jpg" backgroundPosition="center">
+      <Box
+        backgroundImage="/images/wood-board.jpg"
+        backgroundPosition="center"
+        minHeight="100vh"
+        height="100%"
+      >
         <Box
           backgroundImage="/images/graph-paper-header.png"
           backgroundPosition="bottom"

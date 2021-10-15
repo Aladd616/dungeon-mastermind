@@ -28,7 +28,7 @@ export const CharacterWrapper = (props) => {
     <Grid templateRows="repeat(1, 1f)" templateColumns="repeat(5, 1f)">
       <GridItem colSpan={1}>
         <Box>
-          <NavLink to={'/characters/create'}>
+          <NavLink key="create" to={'/characters/create'}>
             <Text>CREATE NEW</Text>
           </NavLink>
           {renderList}

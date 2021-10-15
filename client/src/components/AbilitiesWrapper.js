@@ -25,8 +25,8 @@ export const AbilitiesWrapper = (props) => {
   });
 
   return (
-    <Grid templateRows="repeat(1, 1f)" templateColumns="repeat(5, 1f)">
-      <GridItem colSpan={1}>
+    <Grid templateRows="repeat(1, 1f)" templateColumns="repeat(5, 1f)" gap={4} color='300C04'>
+      <GridItem colSpan={1} bg='#E5E1E0'>
         <Box>{renderList}</Box>
       </GridItem>
       <GridItem colSpan={4} colStart={2}>

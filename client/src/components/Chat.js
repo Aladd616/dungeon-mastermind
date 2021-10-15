@@ -1,32 +1,85 @@
-import React from 'react'
+import React,{useState} from 'react'
+import Axios  from 'axios'
+import io from "socket.io-client"
 import {
     Drawer,
-    DrawerBody,
     DrawerFooter,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
     useDisclosure,
     Button,
-    Input,
     Tabs, 
     TabList, 
     TabPanels, 
     Tab, 
     TabPanel,
+    Textarea,
+    FormControl,
+    Box
   } from "@chakra-ui/react"
   import ContactList from './ContactList'
-import GroupList from './GroupList'
+import Messages from './messages'
 
 function Chat() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
 
+    const [user,setUser]=useState("")
+    const [newMessage,setNewMessage] = useState("")
+
+  
+    const getUser = () => {
+      Axios({
+        method: "GET",
+        withCredentials: true,
+        url: "/auth/user",
+      }).then((res) => {
+        setUser(res.data);
+        console.log ('is it working')
+      });
+    };
+
+    function runfunctions(){
+        onOpen();
+        getUser();
+
+    }
+    //SOCKETio
+
+    useEffect(() => {
+      socketRef.current = io.connect('/');
+  
+      socketRef.current.on("your id", id => {
+        setYourID(id);
+      })
+  
+      socketRef.current.on("message", (message) => {
+        console.log("here");
+        receivedMessage(message);
+      })
+    }, []);
+    
+    function receivedMessage(message) {
+      setMessages(oldMsgs => [...oldMsgs, message]);
+    }
+
+    const submitMessage = event => {
+      event.preventDefault()
+      const messageObject = {
+        body: message,
+        id: yourID,
+      };
+      setMessage("");
+      socketRef.current.emit("send message", messageObject);
+    }
+
     return (
         <>
-        <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+        <Button ref={btnRef} colorScheme="teal" onClick={runfunctions}>
           Chat
         </Button>
+        
         <Drawer
           isOpen={isOpen}
           placement="right"
@@ -38,26 +91,39 @@ function Chat() {
             <DrawerCloseButton />
             <Tabs>
   <TabList>
-    <Tab>Group Chats</Tab>
-    <Tab>Contacts</Tab>
+    <Tab>Chats</Tab>
+    <Tab>Messages</Tab>
   </TabList>
+  
 
   <TabPanels>
     <TabPanel>
-      <GroupList/>
+      <ContactList currentUser = {user} />
     </TabPanel>
     <TabPanel>
-        <ContactList/>
+        <Box overflowY="auto"
+        height = "60vh"
+          >
+        <Messages/>
+        <Messages/>
+        <Messages/>
+        <Messages/>
+        <Messages/>
+        </Box>
+        <form onSubmit = {submitMessage}>
+        <FormControl>
+        <Textarea
+        onChange={(e) => setNewMessage(e.target.value)}
+        value = {newMessage}
+        />
+        </FormControl>
+        <Button type='submit'>Send</Button>
+        </form>
     </TabPanel>
   </TabPanels>
 </Tabs>
-            <Button colorScheme="blue">Send</Button>
-            <DrawerBody>
-              <Input placeholder="Type here..." />
-            </DrawerBody>
-  
             <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
+              <Button variant="outline" mr={2} onClick={onClose}>
                Close
               </Button>
             </DrawerFooter>

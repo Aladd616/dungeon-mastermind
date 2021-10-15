@@ -1,0 +1,14 @@
+[
+  {
+    "isDM": "false",
+    "name": "Billy",
+    "password": "password",
+    "email": "Billy@gmail.com"
+  },
+  {
+    "isDM": "true",
+    "name": "Sally",
+    "password": "password",
+    "email": "Sally@gmail.com"
+  }
+]

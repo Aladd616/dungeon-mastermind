@@ -33,13 +33,19 @@ router.get('/:id', async (req, res) => {
 
 // ------------------------------------------------------------------------------------------------
 // Creates a new user using /api/users/
-router.post(
-  '/',
-  passport.authenticate('local-signup', {
-    successRedirect: '/',
-    failureRedirect: '/signup',
-  }),
-  async (req, res, next) => {}
+router.post( '/',  async (req, res, next) => {
+    try { 
+      console.log(req.body)
+      const userData = await User.create(req.body);
+    res.status(200).json(userData)
+      passport.authenticate('local-signup', {
+        successRedirect: '/',
+        failureRedirect: '/',
+      })
+    } catch (err) {
+     return res.status(400).json(err)
+    }
+  }
 );
 
 // ------------------------------------------------------------------------------------------------
@@ -64,5 +70,16 @@ router.post('/logout', async (req, res, next) => {
   }
 });
 // ------------------------------------------------------------------------------------------------
+// Gets data about one user by id
+router.get('/name/:name', async (req, res) => {
+  console.log("testing 123")
+  try {
+    const friend = await User.findOne({where: {name:req.params.name}});
+
+    res.status(200).json(friend);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

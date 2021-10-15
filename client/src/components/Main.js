@@ -7,6 +7,12 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import DiceWrapper from './DiceWrapper';
 import Navigation from './Navigation';
 import Header from './Header';
+import CharacterWrapper from './CharacterWrapper';
+import CombatTracker from './CombatTracker';
+import { useEffect, useState } from 'react';
+import Login from './Login';
+import SignUp from './SignUp';
+import AbilitiesWrapper from './AbilitiesWrapper';
 
 export default function Main(props) {
   return (
@@ -16,18 +22,27 @@ export default function Main(props) {
       <Switch>
         <Route exact path="/">
           <p>Combat Tracker goes here</p>
+          <CombatTracker/>
         </Route>
         <Route path="/dice">
           <DiceWrapper />
         </Route>
+        <Route path="/characters/:id" component={CharacterWrapper}></Route>
         <Route path="/characters">
-          <p>Characters Goes here</p>
+          <CharacterWrapper />
         </Route>
+        <Route path="/abilities/:id" component={AbilitiesWrapper}></Route>
         <Route path="/abilities">
-          <p>abilities goes here</p>
+          <AbilitiesWrapper />
         </Route>
         <Route path="/settings">
           <p>settings goes here</p>
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <SignUp />
         </Route>
       </Switch>
     </Router>

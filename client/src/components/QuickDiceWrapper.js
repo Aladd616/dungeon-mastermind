@@ -1,3 +1,7 @@
+// ================================================
+//  Container that instantiates one dice box for each
+// die type
+// ================================================
 import React from 'react';
 import { Box, Heading, Flex } from '@chakra-ui/react';
 import QuickDiceBox from './QuickDiceBox';

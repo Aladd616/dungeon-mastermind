@@ -10,11 +10,11 @@ router.post('/', async(req,res)=>{
     }
 });
 
-router.get('/userid',async(req,res)=>{
-   
+router.get('/:userid',async(req,res)=>{
+    console.log('in here')
     try {
-        const getChats = await Members.find({
-            where: {user_id: req.params.id }
+        const getChats = await Members.findAll({
+            where: {user_id: req.params.userid }
         });
         res.status(200).json(getChats)
     } catch (err) {

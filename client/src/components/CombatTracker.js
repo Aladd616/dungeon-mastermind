@@ -11,6 +11,11 @@ import {
   Button,
   ButtonGroup,
   Box,
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
 } from '@chakra-ui/react';
 
 const CombatTracker = () => {
@@ -31,20 +36,46 @@ const CombatTracker = () => {
     console.log(characterData);
   }
 
+  function encounterDisplay(encounter) {
+    encounter.map((encounterCharacter) => {
+      console.log(encounterCharacter);
+      return (
+        <div>
+          <UnorderedList>
+            <ListItem key={encounterCharacter}>{encounterCharacter}</ListItem>
+          </UnorderedList>
+        </div>
+      );
+    });
+  }
+
   function changeInitiative(initiativeInput) {}
 
   return (
-    <ButtonGroup>
-      {characters.data.map((character) => (
-        <Button
-          onClick={() => encounterClick(character)}
-          colorScheme="blue"
-          key={character.character_name}
-        >
-          {character.character_name}
+    <div>
+      <ButtonGroup>
+        {characters.data.map((character) => (
+          <Button
+            onClick={() => encounterClick(character)}
+            colorScheme="blue"
+            key={character.character_name}
+          >
+            {character.character_name}
+          </Button>
+        ))}
+        <Button onClick={() => console.log(encounter)}>test</Button>
+        <Button onClick={() => encounterDisplay(encounter)}>
+          finish encounter
         </Button>
-      ))}
-    </ButtonGroup>
+      </ButtonGroup>
+      <UnorderedList>
+        {encounter.map((encounterCharacter) => (
+          <ListItem key={encounterCharacter.id}>
+            {encounterCharacter.character_name}
+          </ListItem>
+        ))}
+      </UnorderedList>
+    </div>
   );
 };
 

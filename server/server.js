@@ -8,7 +8,6 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 // Initialize secondary utilities
 const routes = require('./controllers');
 const cookieParser = require('cookie-parser');
-
 const sequelize = require('./config/connection');
 const { urlencoded } = require('express');
 const passport = require('passport');
@@ -24,6 +23,7 @@ const sess = {
   resave: false,
   saveUninitialized: false,
   store: appStore,
+  
 };
 
 app.use(session(sess));

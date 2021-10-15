@@ -1,4 +1,5 @@
-import React from 'react'
+import React,{useState} from 'react'
+import Axios  from 'axios'
 import {
     Drawer,
     DrawerBody,
@@ -16,16 +17,35 @@ import {
     TabPanel,
   } from "@chakra-ui/react"
   import ContactList from './ContactList'
-import GroupList from './GroupList'
 import Messages from './messages'
 
 function Chat() {
     const { isOpen, onOpen, onClose } = useDisclosure()
     const btnRef = React.useRef()
 
+    const [user,setUser]=useState("")
+
+  
+    const getUser = () => {
+      Axios({
+        method: "GET",
+        withCredentials: true,
+        url: "/auth/user",
+      }).then((res) => {
+        setUser(res.data);
+        console.log ('is it working')
+      });
+    };
+
+    function runfunctions(){
+        onOpen();
+        getUser();
+
+    }
+
     return (
         <>
-        <Button ref={btnRef} colorScheme="teal" onClick={onOpen}>
+        <Button ref={btnRef} colorScheme="teal" onClick={runfunctions}>
           Chat
         </Button>
         
@@ -47,7 +67,7 @@ function Chat() {
 
   <TabPanels>
     <TabPanel>
-      <ContactList/>
+      <ContactList currentUser = {user} />
     </TabPanel>
     <TabPanel>
         <Messages/>

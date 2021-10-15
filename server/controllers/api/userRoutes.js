@@ -73,6 +73,7 @@ router.post('/logout', async (req, res, next) => {
 // ------------------------------------------------------------------------------------------------
 
 router.get("/user", (req, res) => {
+  console.log(req.user)
   res.send(req.user);
 });
 

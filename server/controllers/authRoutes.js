@@ -24,8 +24,7 @@ router.post("/login", (req, res, next) => {
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
-        res.send("Successfully Authenticated");
-        console.log(req.user);
+        res.send(req.user);
       });
     }
   })(req, res, next);
@@ -33,7 +32,10 @@ router.post("/login", (req, res, next) => {
 // ------------------------------------------------------------------------------------------------
 
 router.get("/user", (req, res) => {
-  res.send(req.user);
+  console.log('this is a test4')
+  console.log(req.user);
+  console.log('this is the test')
+  res.send(req.user)
 });
 
 

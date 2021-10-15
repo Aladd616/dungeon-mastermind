@@ -21,23 +21,25 @@
 // import ContactList from './ContactList';
 // import Messages from './messages';
 
-// function Chat() {
-//   const { isOpen, onOpen, onClose } = useDisclosure();
-//   const btnRef = React.useRef();
+function Chat() {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
 
 //   const [user, setUser] = useState('');
 //   const [newMessage, setNewMessage] = useState('');
 
-//   const getUser = () => {
-//     Axios({
-//       method: 'GET',
-//       withCredentials: true,
-//       url: '/auth/user',
-//     }).then((res) => {
-//       setUser(res.data);
-//       console.log('is it working');
-//     });
-//   };
+
+
+    const getUser = () => {
+      Axios({
+        method: "GET",
+        withCredentials: true,
+        url: "/auth/user",
+      }).then((res) => {
+        setUser(res.data);
+        console.log ('is it working')
+      });
+    };
 
 //   function runfunctions() {
 //     onOpen();
@@ -48,19 +50,45 @@
 //   useEffect(() => {
 //     socketRef.current = io.connect('/');
 
-//     socketRef.current.on('your id', (id) => {
-//       setYourID(id);
-//     });
+    // socket.on("connect", () => {
+    //   console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+    // });
 
-//     socketRef.current.on('message', (message) => {
-//       console.log('here');
-//       receivedMessage(message);
-//     });
-//   }, []);
+    // function receivedMessage(message) {
+    //   setNewMessages(oldMsgs => [...oldMsgs, message]);
+    // }
 
-//   function receivedMessage(message) {
-//     setMessages((oldMsgs) => [...oldMsgs, message]);
-//   }
+    const submitMessage = event => {
+      event.preventDefault()
+      const messageObject = {
+        body: newMessage,
+        id: user.user_id,
+      };
+      setNewMessage("");
+      // socketRef.current.emit("send message", messageObject);
+    }
+
+    return (
+        <>
+        <Button  colorScheme="teal" onClick={runfunctions}>
+          Chat
+        </Button>
+
+        <Drawer
+          isOpen={isOpen}
+          placement="right"
+          onClose={onClose}
+
+        >
+          <DrawerOverlay />
+          <DrawerContent>
+            <DrawerCloseButton />
+            <Tabs>
+  <TabList>
+    <Tab>Chats</Tab>
+    <Tab>Messages</Tab>
+  </TabList>
+
 
 //   const submitMessage = (event) => {
 //     event.preventDefault();

@@ -17,6 +17,9 @@ export const AbilitiesSheet = (props) => {
   });
 
   useEffect(() => {
+    if (id === 'create') {
+      return;
+    }
     fetch(`/api/abilities/${id}`)
       .then((res) => res.json())
       .then((json) => setState({ ...json }));
@@ -28,7 +31,8 @@ export const AbilitiesSheet = (props) => {
   }
 
   function handleSave(evt) {
-    if (id === '') {
+    console.log(id);
+    if (id === 'create') {
       createNewAbility();
     } else {
       updateAbility();
@@ -59,7 +63,7 @@ export const AbilitiesSheet = (props) => {
         },
       }).then((response) => {
         if (response.ok) {
-          console.log('Success');
+          console.log('Successful Create');
         }
       });
     }

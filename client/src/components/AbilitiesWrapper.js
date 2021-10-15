@@ -5,7 +5,6 @@ import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { Box, Text, Grid, GridItem } from '@chakra-ui/react';
 import AbilitiesSheet from './AbilitiesSheet';
-import SaveDeleteButtons from './SaveDeleteButtons';
 
 export const AbilitiesWrapper = (props) => {
   const [state, setState] = useState({ data: [] });

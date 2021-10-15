@@ -23,11 +23,12 @@ import Messages from './messages'
 
 function Chat() {
     const { isOpen, onOpen, onClose } = useDisclosure()
-    const btnRef = React.useRef()
+    
 
     const [user,setUser]=useState("")
     const [newMessage,setNewMessage] = useState("")
 
+  
   
     const getUser = () => {
       Axios({
@@ -47,36 +48,27 @@ function Chat() {
     }
     //SOCKETio
 
-    useEffect(() => {
-      socketRef.current = io.connect('/');
-  
-      socketRef.current.on("your id", id => {
-        setYourID(id);
-      })
-  
-      socketRef.current.on("message", (message) => {
-        console.log("here");
-        receivedMessage(message);
-      })
-    }, []);
+    // socket.on("connect", () => {
+    //   console.log(socket.id); // x8WIv7-mJelg7on_ALbx
+    // });
     
-    function receivedMessage(message) {
-      setMessages(oldMsgs => [...oldMsgs, message]);
-    }
+    // function receivedMessage(message) {
+    //   setNewMessages(oldMsgs => [...oldMsgs, message]);
+    // }
 
     const submitMessage = event => {
       event.preventDefault()
       const messageObject = {
-        body: message,
-        id: yourID,
+        body: newMessage,
+        id: user.user_id,
       };
-      setMessage("");
-      socketRef.current.emit("send message", messageObject);
+      setNewMessage("");
+      // socketRef.current.emit("send message", messageObject);
     }
 
     return (
         <>
-        <Button ref={btnRef} colorScheme="teal" onClick={runfunctions}>
+        <Button  colorScheme="teal" onClick={runfunctions}>
           Chat
         </Button>
         
@@ -84,7 +76,7 @@ function Chat() {
           isOpen={isOpen}
           placement="right"
           onClose={onClose}
-          finalFocusRef={btnRef}
+
         >
           <DrawerOverlay />
           <DrawerContent>

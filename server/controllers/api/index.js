@@ -13,7 +13,7 @@ const abilityListRoutes = require('./abilityListRoutes');
 const combatTrackerRoutes = require('./CombatTrackerRoutes');
 const chatRoutes = require ('./chatRoutes');
 const memberRoutes = require('./membersRoutes');
-const messageRoutes = require('./messagesRoutes')
+const messageRoutes = require('./messagesRoutes');
 
 
 router.use('/users/', userRoutes);

@@ -2,6 +2,9 @@
   text-align: center;
 }
 
+body {
+}
+
 a.active p {
   color: red !important;
 }

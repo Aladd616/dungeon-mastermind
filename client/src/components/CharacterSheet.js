@@ -11,6 +11,7 @@ import {
   InputLeftAddon,
   Textarea,
   Heading,
+  Flex,
 } from '@chakra-ui/react';
 import { useParams } from 'react-router';
 import SaveDeleteButtons from './SaveDeleteButtons';
@@ -160,12 +161,12 @@ export const CharacterSheet = (props) => {
 
   return (
     <Box>
-      <Box>
+      <Flex justifyContent="flex-end">
         <SaveDeleteButtons
           saveFunction={handleSave}
           deleteFunction={handleDelete}
         />
-      </Box>
+      </Flex>
       <Box>
         <Input
           size="lg"

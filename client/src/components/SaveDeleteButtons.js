@@ -8,14 +8,14 @@ import { RiDeleteBin2Line } from 'react-icons/ri';
 
 export const SaveDeleteButtons = ({ saveFunction, deleteFunction }) => {
   return (
-    <Box>
-      <Button color="blue" onClick={saveFunction}>
-        Save
+    <Box mb={4}>
+      <Button color="white" bgColor="green" mr={4} onClick={saveFunction}>
         <AiFillSave />
+        Save
       </Button>
-      <Button color="red">
+      <Button color="white" bgColor="red" onClick={deleteFunction}>
+        <RiDeleteBin2Line />
         Delete
-        <RiDeleteBin2Line onClick={deleteFunction} />
       </Button>
     </Box>
   );

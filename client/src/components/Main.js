@@ -17,36 +17,40 @@ import { Box } from '@chakra-ui/layout';
 export default function Main(props) {
   return (
     <Router>
-      <Box
-        backgroundImage="/images/graph-paper-header.png"
-        backgroundPosition="bottom"
-        height="300px"
-      >
-        <Header />
-        <Navigation {...props} />
+      <Box backgroundImage="/images/wood-board.jpg" backgroundPosition="center">
+        <Box
+          backgroundImage="/images/graph-paper-header.png"
+          backgroundPosition="bottom"
+          height="300px"
+        >
+          <Header />
+          <Navigation {...props} />
+        </Box>
+        <Box p={12}>
+          <Switch>
+            <Route exact path="/">
+              <CombatTracker />
+            </Route>
+            <Route path="/dice">
+              <DiceWrapper />
+            </Route>
+            <Route path="/characters/:id" component={CharacterWrapper}></Route>
+            <Route path="/characters">
+              <CharacterWrapper />
+            </Route>
+            <Route path="/abilities/:id" component={AbilitiesWrapper}></Route>
+            <Route path="/abilities">
+              <AbilitiesWrapper />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <SignUp />
+            </Route>
+          </Switch>
+        </Box>
       </Box>
-      <Switch>
-        <Route exact path="/">
-          <CombatTracker />
-        </Route>
-        <Route path="/dice">
-          <DiceWrapper />
-        </Route>
-        <Route path="/characters/:id" component={CharacterWrapper}></Route>
-        <Route path="/characters">
-          <CharacterWrapper />
-        </Route>
-        <Route path="/abilities/:id" component={AbilitiesWrapper}></Route>
-        <Route path="/abilities">
-          <AbilitiesWrapper />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <SignUp />
-        </Route>
-      </Switch>
     </Router>
   );
 }

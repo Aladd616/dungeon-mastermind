@@ -27,7 +27,8 @@ export const AbilitiesSheet = (props) => {
   }
 
   return (
-    <Box>
+    <Box m={2}
+     color='#300C04'>
       <Input
         size="lg"
         id="title"

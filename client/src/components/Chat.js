@@ -1,20 +1,22 @@
 import React,{useState} from 'react'
 import Axios  from 'axios'
+import io from "socket.io-client"
 import {
     Drawer,
-    DrawerBody,
     DrawerFooter,
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
     useDisclosure,
     Button,
-    Input,
     Tabs, 
     TabList, 
     TabPanels, 
     Tab, 
     TabPanel,
+    Textarea,
+    FormControl,
+    Box
   } from "@chakra-ui/react"
   import ContactList from './ContactList'
 import Messages from './messages'
@@ -24,6 +26,7 @@ function Chat() {
     const btnRef = React.useRef()
 
     const [user,setUser]=useState("")
+    const [newMessage,setNewMessage] = useState("")
 
   
     const getUser = () => {
@@ -41,6 +44,34 @@ function Chat() {
         onOpen();
         getUser();
 
+    }
+    //SOCKETio
+
+    useEffect(() => {
+      socketRef.current = io.connect('/');
+  
+      socketRef.current.on("your id", id => {
+        setYourID(id);
+      })
+  
+      socketRef.current.on("message", (message) => {
+        console.log("here");
+        receivedMessage(message);
+      })
+    }, []);
+    
+    function receivedMessage(message) {
+      setMessages(oldMsgs => [...oldMsgs, message]);
+    }
+
+    const submitMessage = event => {
+      event.preventDefault()
+      const messageObject = {
+        body: message,
+        id: yourID,
+      };
+      setMessage("");
+      socketRef.current.emit("send message", messageObject);
     }
 
     return (
@@ -60,8 +91,8 @@ function Chat() {
             <DrawerCloseButton />
             <Tabs>
   <TabList>
-    <Tab>Chat</Tab>
-    <Tab>Contacts</Tab>
+    <Tab>Chats</Tab>
+    <Tab>Messages</Tab>
   </TabList>
   
 
@@ -70,21 +101,29 @@ function Chat() {
       <ContactList currentUser = {user} />
     </TabPanel>
     <TabPanel>
+        <Box overflowY="auto"
+        height = "60vh"
+          >
         <Messages/>
         <Messages/>
         <Messages/>
         <Messages/>
         <Messages/>
+        </Box>
+        <form onSubmit = {submitMessage}>
+        <FormControl>
+        <Textarea
+        onChange={(e) => setNewMessage(e.target.value)}
+        value = {newMessage}
+        />
+        </FormControl>
+        <Button type='submit'>Send</Button>
+        </form>
     </TabPanel>
   </TabPanels>
 </Tabs>
-            <Button colorScheme="blue">Send</Button>
-            <DrawerBody>
-              <Input placeholder="Type here..." />
-            </DrawerBody>
-  
             <DrawerFooter>
-              <Button variant="outline" mr={3} onClick={onClose}>
+              <Button variant="outline" mr={2} onClick={onClose}>
                Close
               </Button>
             </DrawerFooter>

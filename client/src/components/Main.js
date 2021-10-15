@@ -31,7 +31,7 @@ export default function Main(props) {
           <Header />
           <Navigation {...props} />
         </Box>
-        <Box p={12}>
+        <Box p={12} mx={12} bgColor="white">
           <Switch>
             <Route exact path="/">
               <CombatTracker />

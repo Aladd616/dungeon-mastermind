@@ -16,6 +16,12 @@ import {
   ListIcon,
   OrderedList,
   UnorderedList,
+  FormErrorMessage,
+  FormLabel,
+  Input,
+  InputRightAddon,
+  InputLeftAddon,
+  InputGroup,
 } from '@chakra-ui/react';
 
 const CombatTracker = () => {
@@ -63,7 +69,7 @@ const CombatTracker = () => {
             {character.character_name}
           </Button>
         ))}
-        <Button onClick={() => console.log(encounter)}>test</Button>
+        {/* <Button onClick={() => console.log(encounter)}>test</Button> */}
         <Button onClick={() => encounterDisplay(encounter)}>
           finish encounter
         </Button>
@@ -72,6 +78,7 @@ const CombatTracker = () => {
         {encounter.map((encounterCharacter) => (
           <ListItem key={encounterCharacter.id}>
             {encounterCharacter.character_name}
+            <Input placeholder="initiative" />
           </ListItem>
         ))}
       </UnorderedList>

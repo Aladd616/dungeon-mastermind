@@ -2,7 +2,7 @@ const User = require('./User');
 const Character = require('./character');
 const Ability = require('./Ability');
 const AbilityList = require('./AbilityList');
-const Chat = require ('./Chat');
+const Chat = require ('./chat');
 const Messages = require ('./messages');
 const Members = require ('./ChatMembers');
 

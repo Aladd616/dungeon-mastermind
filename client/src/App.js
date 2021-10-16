@@ -13,7 +13,7 @@ function App() {
     <ChakraProvider theme={theme}>
       <DMProvider>
         <Main />
-        {/* <Chat/> */}
+        <Chat />
       </DMProvider>
     </ChakraProvider>
   );

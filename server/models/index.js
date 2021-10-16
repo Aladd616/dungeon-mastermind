@@ -4,7 +4,7 @@ const Ability = require('./Ability');
 const AbilityList = require('./AbilityList');
 const Chat = require ('./chat');
 const Messages = require ('./messages');
-const Members = require ('./chatMembers');
+// const Members = require ('./chatMembers');
 
 
 Ability.belongsToMany(Character, {
@@ -47,6 +47,6 @@ module.exports = {
   Ability,
   AbilityList,
   Chat,
-  Members,
+ 
   Messages
 };

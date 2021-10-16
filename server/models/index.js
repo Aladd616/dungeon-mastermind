@@ -4,7 +4,7 @@ const Ability = require('./Ability');
 const AbilityList = require('./AbilityList');
 const Chat = require ('./chat');
 const Messages = require ('./messages');
-const Members = require ('./ChatMembers');
+const Members = require ('./chatMembers');
 
 
 Ability.belongsToMany(Character, {

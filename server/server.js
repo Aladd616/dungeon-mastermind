@@ -12,7 +12,6 @@ const sequelize = require('./config/connection');
 const { urlencoded } = require('express');
 const passport = require('passport');
 
-
 // Set up server
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -24,7 +23,6 @@ const sess = {
   resave: false,
   saveUninitialized: false,
   store: appStore,
-  
 };
 
 app.use(session(sess));
@@ -45,19 +43,20 @@ require('./boot/auth');
 app.use(routes);
 const http = require('http');
 const server = http.createServer(app);
-const socket = require("socket.io");
-const io = socket(server);
+const { Server } = require('socket.io');
+const io = new Server(server);
 
-io.on("connection", socket => {
-  socket.emit("your id", socket.id);
-  socket.on("send message", body => {
-      io.emit("message", body)
-  })
-})
+io.on('connection', (socket) => {
+  console.log('Connection successful!');
+  socket.emit('your id', socket.id);
+  socket.on('send message', (body) => {
+    io.emit('message', body);
+  });
+});
 
 // Initiate the sequelize server
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => {
+  server.listen(PORT, () => {
     console.log(`Server initialization complete. Server listening on ${PORT}`);
   });
 });
